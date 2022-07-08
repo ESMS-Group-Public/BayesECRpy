@@ -28,8 +28,9 @@ N        = 10000
 nu       = 1000
 tau      = 1000*ps**2
 
+thinfactor = .05
 
-kpost, Dpost, psipost, weights, successk, successD = MCMCECRig(ax, ay, az, z, t3, kmin, kmax, k, SIGMAk, Dmin, Dmax, D, SIGMAD, N, nu, tau, 0.05)
+kpost, Dpost, psipost, weights, successk, successD = MCMCECRig(ax, ay, az, z, t3, kmin, kmax, k, SIGMAk, Dmin, Dmax, D, SIGMAD, N, nu, tau, thinfactor)
 
 covdraws = 50
 drawind=np.random.randint(low=1, high=N-1000,size=covdraws)
