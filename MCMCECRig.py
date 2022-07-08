@@ -1,7 +1,6 @@
 import numpy as np
 from ECRrectmodel import ECRrectmodel
 from LikelihoodECRrect import LikelihoodECRrect
-from Rejection import Rejection
 from Metropolis import METROPOLIS
 from ig import ig
 def MCMCECRig(ax, ay, az, z, t, kmin, kmax, k, SIGMAk, Dmin, Dmax, D, SIGMAD, N, nu, tau, thinfact):
@@ -27,8 +26,6 @@ def MCMCECRig(ax, ay, az, z, t, kmin, kmax, k, SIGMAk, Dmin, Dmax, D, SIGMAD, N,
      N           = Number of cycles to run the calibration (suggested = 100000.
                    There is a burn-in of around 5000, so the program returns
                    the results from the last N-5000) (This will take a lot of time)
-     nu          =
-     tau         =
      And it returns:
 
      kpost       = the posterior k* distribution

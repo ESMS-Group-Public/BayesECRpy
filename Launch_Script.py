@@ -26,18 +26,30 @@ SIGMAD   =   0.1
 ps      = 0.03
 N        = 10000
 nu       = 1000
-tau      = 1001*ps**2
+tau      = 1000*ps**2
 
 
 kpost, Dpost, psipost, weights, successk, successD = MCMCECRig(ax, ay, az, z, t3, kmin, kmax, k, SIGMAk, Dmin, Dmax, D, SIGMAD, N, nu, tau, 0.05)
 
 covdraws = 50
-drawind=np.random.randint(low=1, high=N-1000,size=50)
+drawind=np.random.randint(low=1, high=N-1000,size=covdraws)
 
 py.plot(t3,z, 'r')
 
 for i in range(1,covdraws):
     y = ECRrectmodel(kpost[0][1000 + drawind[i]], Dpost[0][1000 + drawind[i]], ax, ay, az, t3)
     py.plot(t3, y)
+
+py.show()
+
+#Scatter plot
+
+scatdraws = 1000
+scatind = np.random.randint(low=1, high=N-1000,size=scatdraws)
+scattervecs = np.zeros((scatdraws,2))
+for i in range(1, scatdraws):
+    scattervecs[i, :] = [kpost[0][scatind[i] + 1000], Dpost[0][scatind[i] + 1000]]
+
+py.scatter(scattervecs[:, 0], scattervecs[:, 1],alpha=.2)
 
 py.show()
