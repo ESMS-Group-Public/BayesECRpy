@@ -25,10 +25,11 @@ D        =
 SIGMAD   =
 
 # SAMPLE OF VALUES FOR IG DISTRIBUTION; Experiment with your own values
-ps       = 0.03       # StD of Obs. Variance
+ps       =            # StD of Obs. Variance
 N        = 5000       # Number of cycles to run the calibration
-nu       = 1000       # Shape parameter of the ig distribution
-tau      = 1001*ps**2 # Scale parameter of the ig distribution
-thinfact = 1          # Thinning factor between [0,1]
+nu       = 4          # Shape parameter of the ig distribution
+tau      = 5*ps**2    # Scale parameter of the ig distribution
+
+thinfact =            # Thinning factor between [0,1]
 
 MCMCSIMSig(H220x, H220z, H220t, kmin, kmax, k, SIGMAk, Dmin, Dmax, D, SIGMAD, N, nu, tau, thinfact)
